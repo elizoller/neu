@@ -58,7 +58,7 @@ $countrycode3 = $_POST['countrycode3'];
 //set up query URLs
 $wiki_url_1 = "http://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&titles=".urlencode($city_state_full)."&format=json&redirects";
 $wiki_url_2 = "http://en.wikipedia.org/w/api.php?format=json&action=query&prop=info&titles=".urlencode($city_state_full)."&inprop=url&redirects";
-$google_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" . $lat . "," . $lon . "&rankby=distance&types=amusement_park|aquarium|art_gallery|casino|campground|bowling_alley|library|movie_theater|museum|park|shopping_mall|stadium|university|zoo&key=AIzaSyAYNIsX132klZfHV2bySlU_Lh-r9TlWqno";
+$google_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" . $lat . "," . $lon . "&rankby=distance&types=amusement_park|aquarium|art_gallery|casino|campground|bowling_alley|library|movie_theater|museum|park|shopping_mall|stadium|university|zoo&key=AIzaSyDpbRqXZ8cDTRQEV4-Wm5t6V8LkY6B4QMg";
 $eventful_url = "http://api.eventful.com/json/events/search?app_key=jcqqsQbhhzmpc4D3&keywords=books&location=" . $cquery . "&date=Future&sort_order=date&page_size=4";
 $dpla_url = "http://api.dp.la/v2/items?q=".urlencode($city_state_full).'&api_key=b0ff9dc35cb32dec446bd32dd3b1feb7';
 $flickr_url = "https://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key=24ad194cceb24285045f026dff301622&text=" . urlencode($city_state) . "&safe_search=1&sort=date-taken-desc&per_page=5&format=json&nojsoncallback=1";
