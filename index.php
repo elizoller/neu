@@ -138,6 +138,7 @@
     </div>
   </div>
 </div>
+<hr/>
 <div class="row">
   <div class="col-sm-6">
     <h3>About Me</h3>
@@ -151,6 +152,7 @@
     <a href="https://github.com/elizoller/neu" target="_blank" ><img src="images/code.png"></a>
   </div>
 </div>
+<hr/>
 <div class='footer'>
   <p class='center-block'>Made by <a href='http://eliwire.com'>Eli Zoller</a></p>
 </div>
