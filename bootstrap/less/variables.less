@@ -13,12 +13,16 @@
 @gray-light:             lighten(#000, 46.7%); // #777
 @gray-lighter:           lighten(#000, 93.5%); // #eee
 
-@brand-primary:         #428bca;
-@brand-success:         #5cb85c;
-@brand-info:            #5bc0de;
-@brand-warning:         #f0ad4e;
-@brand-danger:          #d9534f;
-
+//@brand-primary:         #428bca;
+//@brand-success:         #5cb85c;
+//@brand-info:            #5bc0de;
+//@brand-warning:         #f0ad4e;
+//@brand-danger:          #d9534f;
+@brand-primary:			darken(#3498db, 24%);
+@brand-success:         #18bc9c;
+@brand-info:            #3498db;
+@brand-warning:         #f39c12;
+@brand-danger:          #e74c3c;
 
 //== Scaffolding
 //
@@ -843,47 +847,4 @@
 //** Horizontal line color.
 @hr-border:                   @gray-lighter;
 
-#map {
-	h1 {
-		padding:3%;
-	}
-}
-.searchbox {
-	background: url('../../images/worldmap.jpg') 100%;
-}
-form {
-	padding-top:10%;
-	padding-bottom:10%;
-	.col-xs-4, .col-xs-8 {
-		padding-left:1%;
-		padding-right:1%;
-	}
-}
-.row {
-	padding-top:1%;
-	padding-bottom:1%;
-}
-.about {
-	background: lighten(@brand-info, 30%);
-}
-h1, h2, h3, h4, h5, h6, p {
-	padding-left:1%;
-	padding-right:1%;
-}
-#ui-id-1 {
-	width:50%;
-}
-.ui-menu-item {
-	background:@gray-lighter;
-}
-.ui-menu-item:hover, .ui-menu-item:active, .ui-menu-item:focus, .ui-state-focus {
-	background:lighten(@brand-success, 40%);
-	border:none;
-	color:@gray-darker;
-}
-#location_status {
-	display:none;
-}
-.carousel img {
-	width:100%;
-}
+
