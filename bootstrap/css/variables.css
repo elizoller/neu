@@ -1,0 +1,52 @@
+#map h1 {
+  padding: 3%;
+}
+.searchbox {
+  background: url('../../images/worldmap.jpg') 100%;
+}
+form {
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+form .col-xs-4,
+form .col-xs-8 {
+  padding-left: 1%;
+  padding-right: 1%;
+}
+.row {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.about {
+  background: #daf1f8;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding-left: 1%;
+  padding-right: 1%;
+}
+#ui-id-1 {
+  width: 50%;
+}
+.ui-menu-item {
+  background: #eeeeee;
+}
+.ui-menu-item:hover,
+.ui-menu-item:active,
+.ui-menu-item:focus,
+.ui-state-focus {
+  background: #eaf6ea;
+  border: none;
+  color: #222222;
+}
+#location_status {
+  display: none;
+}
+.carousel img {
+  width: 100%;
+}
