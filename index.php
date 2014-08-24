@@ -54,17 +54,17 @@
         <div class="caption">
           <h3>GeoBytes</h3>
           <p>The GeoBytes API was used for the autocomplete search box. JQuery was used get JSON from the Cities API.</p>
-          <p><a href="http://www.geobytes.com/" class="btn btn-primary" role="button">GeoBytes</a> </p>
+          <p><a href="http://www.geobytes.com/" class="btn btn-primary" role="button" target="_blank">API Info</a> </p>
         </div>
       </div>
     </div>
      <div class="col-sm-4 col-md-3">
       <div class="thumbnail">
-        <img src="holder.js/300x300" alt="...">
+        <img src="https://s.yimg.com/pw/images/goodies/white-flickr.png" alt="flickr logo">
         <div class="caption">
           <h3>Flickr</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          <p>The Flickr API was used to create a carousel of images retrieved from a search based on place name.</p>
+          <p><a href="https://www.flickr.com/services/api/" class="btn btn-primary" role="button" target="_blank">API Info</a></p>
         </div>
       </div>
     </div>
@@ -73,18 +73,19 @@
         <img src="http://s3-media3.fl.yelpcdn.com/assets/2/www/img/2d7ab232224f/developers/yelp_logo_100x50.png" alt="Yelp Logo">
         <div class="caption">
           <h3>Yelp</h3>
-          <p>The Yelp API was used to pull in restaurants and their reviews by location</p>
-          <p><a href="http://www.yelp.com/developers/documentation" class="btn btn-primary" role="button">Yelp API</a> </p>
+          <p>The Yelp API was used to pull in restaurants and their reviews by location.</p>
+          <p><a href="http://www.yelp.com/developers/documentation" class="btn btn-primary" role="button" target="_blank">API Info</a> </p>
         </div>
       </div>
     </div>
      <div class="col-sm-4 col-md-3">
       <div class="thumbnail">
-        <img src="holder.js/300x300" alt="...">
+        <img src="http://upload.wikimedia.org/wikipedia/commons/a/aa/Logo_Google_2013_Official.svg" alt="google logo">
+        <a href="http://commons.wikimedia.org/wiki/File:Logo_Google_2013_Official.svg#mediaviewer/File:Logo_Google_2013_Official.svg">Licensed under Public domain via Wikimedia Commons</a>
         <div class="caption">
           <h3>Google Places</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          <p>Google Places API was used to retrieve attractions based on location.</p>
+          <p><a href="https://developers.google.com/places/documentation/" class="btn btn-primary" role="button" target="_blank">API Info</a></p>
         </div>
       </div>
     </div>
@@ -92,57 +93,62 @@
   <div class="row">
     <div class="col-sm-4 col-md-3">
       <div class="thumbnail">
-        <img data-src="holder.js/300x300" alt="...">
+        <img src="http://dp.la/assets/dpla-logo-7540ba3f90785a519efc8e58386b36d7.png" alt="dpla logo">
         <div class="caption">
           <h3>DPLA</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          <p>The Digital Public Library of America API was used to bring in historical artifacts about the location.</p>
+          <p><a href="http://dp.la/info/developers/codex/" class="btn btn-primary" role="button" target="_blank">API Info</a></p>
         </div>
       </div>
     </div>
     <div class="col-sm-4 col-md-3">
       <div class="thumbnail">
-        <img data-src="holder.js/300x300" alt="...">
+        <img src="http://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" alt="wikipedia logo">
+        <a href="http://en.wikipedia.org/wiki/File:Wikipedia-logo-v2.svg#mediaviewer/File:Wikipedia-logo-v2.svg"> Via <a href="//en.wikipedia.org/wiki/">Wikipedia</a>
         <div class="caption">
           <h3>Wikipedia</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          <p>Wikipedia API was used to gather information about the place.</p>
+          <p><a href="http://www.mediawiki.org/wiki/API:Main_page" class="btn btn-primary" role="button" target="_blank">API Info</a></p>
         </div>
       </div>
     </div>
     <div class="col-sm-4 col-md-3">
       <div class="thumbnail">
-        <img data-src="holder.js/300x300" alt="...">
+        <img src="images/geonames.png" alt="geonames logo">
         <div class="caption">
           <h3>GeoNames</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          <p>GeoNames was used to gather required data about the specified location such as latitude and longitude coordinates.</p>
+          <p><a href="http://www.geonames.org/export/web-services.html" class="btn btn-primary" role="button" target="_blank">API Info</a></p>
         </div>
       </div>
     </div>
     <div class="col-sm-4 col-md-3">
       <div class="thumbnail">
-        <img data-src="holder.js/300x300" alt="...">
+        <div class="eventful-badge eventful-medium">
+          <img src="http://api.eventful.com/images/powered/eventful_88x31.gif"
+            alt="Local Events, Concerts, Tickets">
+          <p><a href="http://eventful.com/">Events</a> by Eventful</p>
+        </div>
         <div class="caption">
           <h3>Eventful</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          <p>Eventful API brings in upcoming events in the location.</p>
+          <p><a href="http://api.eventful.com/" class="btn btn-primary" role="button" target="_blank">API Info</a></p>
         </div>
       </div>
     </div>
   </div>
 </div>
 <div class="row">
-  <h3>About Me</h3>
   <div class="col-sm-6">
+    <h3>About Me</h3>
     <p>My name is Eli Zoller. I'm a graduate of <a href="http://simmons.edu" target="_blank">Simmons College</a> with a Masters in Library and Information Science. I currently work as Systems Librarian Fellow for Web and Digital Initiatives at the <a href="http://uta.edu" target="_blank">University of Texas at Arlington</a>. My main responsibility at the <a href="http://uta.edu/library" target="_blank">UT Arlington Libraries</a> is maintain and improve the existing libraries websites' and build additional sites as needed.</p>
     <a href="http://www.eliwire.com" target="_blank" class="btn btn-primary" role="button">Personal Website</a>
     <a href="http://github.com/elizoller" target="_blank" class="btn btn-success" role="button">Github</a>
-    <a href="http://www.eliwire.com/resume.pdf" target="_blank" class="btn btn-info" role="button">Resume</a>
+    <a href="http://www.eliwire.com/Resume_Zoller_Library.pdf" target="_blank" class="btn btn-info" role="button">Resume</a>
   </div>
   <div class="col-sm-6">
-    <a href="" target="_blank" >View the Source</a>
-    <a href="" target="_blank" ><img src=""></a>
+    <h3><a href="https://github.com/elizoller/neu" target="_blank" >View the Source</a></h3>
+    <a href="https://github.com/elizoller/neu" target="_blank" ><img src="images/code.png"></a>
   </div>
 </div>
 <div class='footer'>

@@ -197,7 +197,7 @@ function eventful($cquery, $results_eventful, $city, $state) {
       }
       echo "</ul>";
     }
-    echo "<p class='clearfix'><a href='https://www.google.com/#q=" . urlencode("upcoming events " . $city . ", " . $state) . "'>More Upcoming Events</a></div>";
+    echo "<p class='clearfix'><a href='https://www.google.com/#q=" . urlencode("upcoming events " . $city . ", " . $state) . "'>More Upcoming Events</a><div class='eventful-badge eventful-small'><img src='http://api.eventful.com/images/powered/eventful_58x20.gif' alt='Local Events, Concerts, Tickets'><p><a href='http://eventful.com/'>Events</a> by Eventful</p></div></p>";
 }
 
 function dpla($city_state, $results_dpla) {
