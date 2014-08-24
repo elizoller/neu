@@ -58,23 +58,11 @@ $countrycode3 = $_POST['countrycode3'];
 //set up query URLs
 $wiki_url_1 = "http://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&titles=".urlencode($city_state_full)."&format=json&redirects";
 $wiki_url_2 = "http://en.wikipedia.org/w/api.php?format=json&action=query&prop=info&titles=".urlencode($city_state_full)."&inprop=url&redirects";
-  $google_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" . $lat . "," . $lon . "&rankby=distance&types=amusement_park|aquarium|art_gallery|casino|campground|bowling_alley|library|movie_theater|museum|park|shopping_mall|stadium|university|zoo&key=AIzaSyAnpCEFofOkoTJLEXJZc4O4qpDT3YFgkJI";
-  $eventful_url = "http://api.eventful.com/json/events/search?app_key=jcqqsQbhhzmpc4D3&keywords=books&location=" . $cquery . "&date=Future&sort_order=date&page_size=4";
-  $dpla_url = "http://api.dp.la/v2/items?q=".urlencode($city_state_full).'&api_key=b0ff9dc35cb32dec446bd32dd3b1feb7';
-  /*$wunderground_url = "http://autocomplete.wunderground.com/aq?query=" . $cquery;
-  //getting wunderground url
- $filecontents = file_get_contents($wunderground_url);
- $filecontents = json_decode($filecontents);
-   foreach ($filecontents->RESULTS as $resultw) {
-      $wundergroundurl = $resultw->l;
-    }
-      $wunderground_url = "http://api.wunderground.com/api/00d16d2057ab5cd1/conditions" . $wundergroundurl.".json";
-      //echo $wunderground_url;
-  $jamendo_url = "http://api.jamendo.com/v3.0/artists/locations?client_id=25e87652&format=jsonpretty&limit=5&haslocation=true&location_country=" . $countrycode3 . "&location_city=" . $city;*/
-  $flickr_url_1 = "https://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key=24ad194cceb24285045f026dff301622&lat=" . $lat . "&lon=" . $lon . "&safe_search=1&sort=date-taken-desc&per_page=5&format=json&nojsoncallback=1";
-  $flickr_url = "https://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key=24ad194cceb24285045f026dff301622&text=" . urlencode($city_state) . "&safe_search=1&sort=date-taken-desc&per_page=5&format=json&nojsoncallback=1";
-  //echo $flickr_url_1 . "<br/>";
-  //echo $flickr_url . "<br/>";
+$google_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" . $lat . "," . $lon . "&rankby=distance&types=amusement_park|aquarium|art_gallery|casino|campground|bowling_alley|library|movie_theater|museum|park|shopping_mall|stadium|university|zoo&key=AIzaSyAnpCEFofOkoTJLEXJZc4O4qpDT3YFgkJI";
+$eventful_url = "http://api.eventful.com/json/events/search?app_key=jcqqsQbhhzmpc4D3&keywords=books&location=" . $cquery . "&date=Future&sort_order=date&page_size=4";
+$dpla_url = "http://api.dp.la/v2/items?q=".urlencode($city_state_full).'&api_key=b0ff9dc35cb32dec446bd32dd3b1feb7';
+$flickr_url = "https://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key=24ad194cceb24285045f026dff301622&text=" . urlencode($city_state) . "&safe_search=1&sort=date-taken-desc&per_page=5&format=json&nojsoncallback=1";
+
 if ($action == 'all') {
   all();
 }
@@ -85,32 +73,26 @@ function all() {
   $ch_1 = curl_init($dpla_url);
   $ch_2 = curl_init($wiki_url_1);
   $ch_3 = curl_init($wiki_url_2);
-  //$ch_4 = curl_init($wunderground_url);
-  $ch_5 = curl_init($eventful_url);
-  $ch_6 = curl_init($google_url);
-  //$ch_7 = curl_init($jamendo_url);
-  $ch_8 = curl_init($flickr_url);
+  $ch_4 = curl_init($eventful_url);
+  $ch_5 = curl_init($google_url);
+  $ch_6 = curl_init($flickr_url);
 
   curl_setopt($ch_1, CURLOPT_HEADER, false);          // Don't return HTTP headers
   curl_setopt($ch_1, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch_2, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch_3, CURLOPT_RETURNTRANSFER, true);
-  //curl_setopt($ch_4, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch_4, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch_5, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch_6, CURLOPT_RETURNTRANSFER, true);
-  //curl_setopt($ch_7, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($ch_8, CURLOPT_RETURNTRANSFER, true);
 
   // build the multi-curl handle, adding both $ch
   $mh = curl_multi_init();
   curl_multi_add_handle($mh, $ch_1);
   curl_multi_add_handle($mh, $ch_2);
   curl_multi_add_handle($mh, $ch_3);
-  //curl_multi_add_handle($mh, $ch_4);
+  curl_multi_add_handle($mh, $ch_4);
   curl_multi_add_handle($mh, $ch_5);
   curl_multi_add_handle($mh, $ch_6);
-  //curl_multi_add_handle($mh, $ch_7);
-  curl_multi_add_handle($mh, $ch_8);
 
 
   // execute all queries simultaneously, and continue when all are complete
@@ -123,20 +105,16 @@ function all() {
   $response_1 = curl_multi_getcontent($ch_1);
   $response_2 = curl_multi_getcontent($ch_2);
   $response_3 = curl_multi_getcontent($ch_3);
-  //$response_4 = curl_multi_getcontent($ch_4);
+  $response_4 = curl_multi_getcontent($ch_4);
   $response_5 = curl_multi_getcontent($ch_5);
   $response_6 = curl_multi_getcontent($ch_6);
-  //$response_7 = curl_multi_getcontent($ch_7);
-  $response_8 = curl_multi_getcontent($ch_8);
 
   $results_dpla = json_decode($response_1);
   $results_wiki_1 = json_decode($response_2);
   $results_wiki_2 = json_decode($response_3);
-  //$results_wundergound = json_decode($response_4);
-  $results_eventful = json_decode($response_5);
-  $results_google = json_decode($response_6);
-  //$results_jamendo = json_decode($response_7);
-  $results_flickr = json_decode($response_8);
+  $results_eventful = json_decode($response_4);
+  $results_google = json_decode($response_5);
+  $results_flickr = json_decode($response_6);
 
   wikipedia($city_state, $results_wiki_1, $results_wiki_2);
   echo "<hr/>";
@@ -146,9 +124,7 @@ function all() {
   eventful($cquery, $results_eventful, $city, $state);
   echo "</div>";
   echo "<hr/><div class='row'>";
-  dpla($city_state, $resultdpla);
-  //wunderground($cquery, $results_wundergound);
-  //jamendo($city, $results_jamendo);
+  dpla($city_state, $results_dpla);
   flickr($city, $results_flickr);
   echo "</div>";
   }
@@ -183,12 +159,12 @@ function yelp($results_yelp, $cquery, $city, $state) {
       echo "<div class='col-sm-3 col-xs-6'>";
       echo "<h5><a href='" . $business->url . "' target='_blank'>" . $business->name . "</a></h5>";
       if (isset($business->image_url)) {
-        echo "<img src='" . $business->image_url . "' class='img-thumbnail'>";
+        echo "<a href='" . $business->url . "' target='_blank'><img src='" . $business->image_url . "' class='img-thumbnail'></a>";
       }
-      echo "<br/><img src='" . $business->rating_img_url_small . "'>";
+      echo "<br/><a href='" . $business->url . "' target='_blank'><img src='" . $business->rating_img_url_small . "'></a>";
       echo "</div>";
     }
-  echo "<p class='clearfix'><img src='http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9b7b8f0fecd7/developers/Powered_By_Yelp_Yellow.png'><br/><a href='http://www.yelp.com/search?find_desc=Restaurants&find_loc=" . $city . "%2C+" . $state . "&ns=1' target='_blank'>Find more Restaurants on Yelp</a></p></div></div>";
+  echo "<p class='clearfix'><a href='http://yelp.com' target='_blank'><img src='http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9b7b8f0fecd7/developers/Powered_By_Yelp_Yellow.png'></a><br/><a href='http://www.yelp.com/search?find_desc=Restaurants&find_loc=" . $city . "%2C+" . $state . "&ns=1' target='_blank'>Find more Restaurants on Yelp</a></p></div></div>";
   }
 } 
 function googleplaces($results_google, $city, $state) {
@@ -215,7 +191,7 @@ function eventful($cquery, $results_eventful, $city, $state) {
     else {
       echo "<ul>";
       foreach($results_eventful->events->event as $event) {
-        echo "<li>" . $event->title . "<br/>";
+        echo "<li><a href='" . $event->url . "' target='_blank'>" . $event->title . "</a><br/>";
         echo $event->start_time . "<br/>";
         echo "at the <a href='" . $event->venue_url . "' target='_blank'>" . $event->venue_name . "</a></li>";
       }
@@ -224,95 +200,62 @@ function eventful($cquery, $results_eventful, $city, $state) {
     echo "<p class='clearfix'><a href='https://www.google.com/#q=" . urlencode("upcoming events " . $city . ", " . $state) . "'>More Upcoming Events</a></div>";
 }
 
-/*function wunderground($cquery, $results_wundergound) {
- //WEATHER UNDERGROUND RESULTS
-   echo "Current Weather in " . $cquery . "<br/>";
-      $weatherimg = $results_wundergound->current_observation->icon_url;
-      echo "<img src='" . $weatherimg . "'>";
-      echo "<br/>Feels like " . $results_wundergound->current_observation->feelslike_f;
-      echo "<br/><a href='" . $results_wundergound->current_observation->forecast_url . "' target='_blank'>See the full forecast</a>";
-}*/
-
-  /*
-function jamendo($city, $results_jamendo) {
-//JAMENDO   
-  echo "<br/>Musicians from " . $city . "<br/>";  
-  //echo $response_7;
-  foreach($results_jamendo->results as $band) {
-    if ($band->website == NULL) {
-      $bandurl = $band->shorturl;
-    } else {
-      $bandurl = $band->website;
-    }
-    echo "<a href='" . $bandurl . "' target='_blank'>" . $band->name . "</a>";
-    echo "<br/><img src='" . $band->image . "'><br/><br/>";
-  }
-}
-*/
-function dpla($city_state, $resultdpla) {
+function dpla($city_state, $results_dpla) {
 // DPLA RESULTS
 //gets count of results
-$numresultsdpla = intval($resultdpla->count);
+$numresultsdpla = intval($results_dpla->count);
 $countdpla = 0;
 echo "<div class='col-sm-6'><h3>Get Historical</h3>";
-if ($numresultsdpla > 0) {
-  echo "<ul>";
-  foreach ($resultdpla->docs as $doc) {
-    $countdpla++;
-    if ($countdpla <= 5) {
-      $link = $doc->isShownAt;
-      $title = $doc->sourceResource->title;
-      if (is_array($title)) {
-        $title = $title[0];
-      }
-       $provider = $doc->dataProvider;
-      if (is_array($provider)) {
-        $provider = $provider[0];
-      }
-      // if there is an image, it's here
-      if (isset($doc->object)) {
-        $image = $doc->object;
-      }
-      // if not, show placeholder image
-      if (!(isset($image))) {
-        $image = "http://dp.la/assets/icon-text.gif";
-      }
-      // display item
-        echo "<li><a href='".$link."' target='_blank'><img src='" . $image . "' /></a><br/><a href='" . $link . "' target='_blank'>" . $title . "</a>" . $provider . "</li>";
+  if ($numresultsdpla > 0) {
+    foreach ($results_dpla->docs as $doc) {
+      $countdpla++;
+      if ($countdpla <= 5) {
+        $link = $doc->isShownAt;
+        $title = $doc->sourceResource->title;
+        if (is_array($title)) {
+          $title = $title[0];
+        }
+         $provider = $doc->dataProvider;
+        if (is_array($provider)) {
+          $provider = $provider[0];
+        }
+        // if there is an image, it's here
+        if (isset($doc->object)) {
+          $image = $doc->object;
+        }
+        // if not, show placeholder image
+        if (!(isset($image))) {
+          $image = "http://dp.la/assets/icon-text.gif";
+        }
+        // display item
+          echo "<div class='row'><div class='col-xs-4'><a href='".$link."' target='_blank'><img src='" . $image . "' class='dpla_image' /></a></div><div class='col-xs-8'><a href='" . $link . "' target='_blank'>" . $title . "</a><br/>" . $provider . "</div></div>";
       }
     }
-    echo "</ul>";
-    // provide link to jump out to DPLA search, including query
-    echo "<a href='http://dp.la/search?q=".$city_state."' target='_blank'>See full results for your query '".$city_state."' at the Digital Public Library of America</a>";
-      echo "</div>";
-
+      
+      echo "<a href='http://dp.la/search?q=".$city_state."' target='_blank'>See full results for ".$city_state." at the Digital Public Library of America</a>";
   } else {
-    echo "<p>'".$city_state."' returned no results from the <a href='http://dp.la' target='_blank'>Digital Public Library of America</a>.</p>";
+      echo "<p>".$city_state." returned no results from the <a href='http://dp.la' target='_blank'>Digital Public Library of America</a>.</p>";
   }
-  echo "</div>"; 
+    echo "</div>"; 
 }
-  function flickr($city, $results_flickr) {
-//FLICKR
-  //echo $response_8;
-  //echo $results_flickr->photos->total;
+function flickr($city, $results_flickr) {
+  //FLICKR RESULTS
    echo "<div class='col-sm-6'><h3>Local Pictures</h3>";
    if ($results_flickr->photos->total != 0) {
-   echo "<div class='carousel slide' id='flickr_carousel'><ol class='carousel-indicators'><li data-target='flickr_carousel' data-slide='0' class='active'><li data-target='flickr_carousel' data-slide='1'><li data-target='flickr_carousel' data-slide='2'><li data-target='flickr_carousel' data-slide='3'><li data-target='flickr_carousel' data-slide='4'></ol><div class='carousel-inner'>";
+   echo "<div class='carousel slide' id='flickr_carousel'><ol class='carousel-indicators'><li data-target='flickr_carousel' data-slide-to='0' class='active'><li data-target='flickr_carousel' data-slide-to='1'><li data-target='flickr_carousel' data-slide-to='2'><li data-target='flickr_carousel' data-slide-to='3'><li data-target='flickr_carousel' data-slide-to='4'></ol><div class='carousel-inner'>";
    $flickr_count = 0;
   foreach($results_flickr->photos->photo as $photo) {
     $flickr_count++;
     $photoid = $photo->id;
-    //echo $photoid;
     $phototitle = $photo->title;
     $photourl = file_get_contents("https://api.flickr.com/services/rest/?&method=flickr.photos.getSizes&format=json&api_key=24ad194cceb24285045f026dff301622&photo_id=" . $photoid . "&nojsoncallback=1");
-    //echo $photourl;
     $photojson = json_decode($photourl);
-    //$thumb = $photojson->sizes[0]->canblog;
-    //    echo $thumb;
 
     foreach($photojson->sizes->size as $size) {
-      //echo $size->label . " : " . $size->url . "<br/>";
       if ($size->label == 'Medium 800') {
+        $thumb = $size->source;
+        $photolink = $size->url;
+      } else if ($size->label == 'Medium') {
         $thumb = $size->source;
         $photolink = $size->url;
       }

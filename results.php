@@ -25,15 +25,6 @@ if (isset($_POST['submit']) && $_POST['q'] != NULL) {
       $lon = $place->lng;
     }
   }
-    //to get iso3 country code, needed for jamendo
-    /*$countryfile = file_get_contents("http://api.worldbank.org/countries/" . $country . "?format=json");
-    $countrycode = json_decode($countryfile);
-    foreach($countrycode as $country) {
-      foreach($country as $thiscountry) {
-        $countrycode3 =  $thiscountry->id;
-      }       
-    }
-  */
     $imgurl = "http://staticmap.openstreetmap.de/staticmap.php?center=" . $lat . "," . $lon . "&zoom=14&size=865x512&maptype=mapnik";
   ?>
 <!DOCTYPE html>
@@ -60,6 +51,7 @@ if (isset($_POST['submit']) && $_POST['q'] != NULL) {
   <div class="col-xs-12" id="map">
     <h1 class="text-center"><?php echo $city . ", " . $state; ?></h1>
   </div>
+  <a href='http://www.openstreetmap.org/search?query=<?php echo urlencode($lat .  ", " . $lon); ?>' target='_blank'>View Map</a>
 </div>
 <div class="content">
 

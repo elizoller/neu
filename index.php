@@ -132,6 +132,19 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <h3>About Me</h3>
+  <div class="col-sm-6">
+    <p>My name is Eli Zoller. I'm a graduate of <a href="http://simmons.edu" target="_blank">Simmons College</a> with a Masters in Library and Information Science. I currently work as Systems Librarian Fellow for Web and Digital Initiatives at the <a href="http://uta.edu" target="_blank">University of Texas at Arlington</a>. My main responsibility at the <a href="http://uta.edu/library" target="_blank">UT Arlington Libraries</a> is maintain and improve the existing libraries websites' and build additional sites as needed.</p>
+    <a href="http://www.eliwire.com" target="_blank" class="btn btn-primary" role="button">Personal Website</a>
+    <a href="http://github.com/elizoller" target="_blank" class="btn btn-success" role="button">Github</a>
+    <a href="http://www.eliwire.com/resume.pdf" target="_blank" class="btn btn-info" role="button">Resume</a>
+  </div>
+  <div class="col-sm-6">
+    <a href="" target="_blank" >View the Source</a>
+    <a href="" target="_blank" ><img src=""></a>
+  </div>
+</div>
 <div class='footer'>
   <p class='center-block'>Made by <a href='http://eliwire.com'>Eli Zoller</a></p>
 </div>
