@@ -188,7 +188,7 @@ function yelp($results_yelp, $cquery, $city, $state) {
       echo "<br/><img src='" . $business->rating_img_url_small . "'>";
       echo "</div>";
     }
-  echo "<p class='clearfix'><a href='http://www.yelp.com/search?find_desc=Restaurants&find_loc=" . $city . "%2C+" . $state . "&ns=1' target='_blank'>Find more Restaurants on Yelp</a></p></div></div>";
+  echo "<p class='clearfix'><img src='http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9b7b8f0fecd7/developers/Powered_By_Yelp_Yellow.png'><br/><a href='http://www.yelp.com/search?find_desc=Restaurants&find_loc=" . $city . "%2C+" . $state . "&ns=1' target='_blank'>Find more Restaurants on Yelp</a></p></div></div>";
   }
 } 
 function googleplaces($results_google, $city, $state) {

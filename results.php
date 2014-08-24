@@ -26,14 +26,14 @@ if (isset($_POST['submit']) && $_POST['q'] != NULL) {
     }
   }
     //to get iso3 country code, needed for jamendo
-    $countryfile = file_get_contents("http://api.worldbank.org/countries/" . $country . "?format=json");
+    /*$countryfile = file_get_contents("http://api.worldbank.org/countries/" . $country . "?format=json");
     $countrycode = json_decode($countryfile);
     foreach($countrycode as $country) {
       foreach($country as $thiscountry) {
         $countrycode3 =  $thiscountry->id;
       }       
     }
-
+  */
     $imgurl = "http://staticmap.openstreetmap.de/staticmap.php?center=" . $lat . "," . $lon . "&zoom=14&size=865x512&maptype=mapnik";
   ?>
 <!DOCTYPE html>
@@ -75,7 +75,7 @@ if (isset($_POST['submit']) && $_POST['q'] != NULL) {
   <script>
      $(document).ready(function() {
         $.ajax({
-          url: 'api-new.php',
+          url: 'api.php',
           type: 'POST',
           data: {action: 'all', lat: '<?php echo $lat;?>', lon: '<?php echo $lon;?>', countrycode3: '<?php echo $countrycode3; ?>', city: '<?php echo $city;?>', cquery: '<?php echo $cquery;?>', state: '<?php echo $state;?>', state_full: '<?php echo $state_full;?>'},
           beforeSend: function() {

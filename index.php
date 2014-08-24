@@ -58,29 +58,29 @@
         </div>
       </div>
     </div>
-     <!--<div class="col-sm-4 col-md-3">
+     <div class="col-sm-4 col-md-3">
       <div class="thumbnail">
         <img src="holder.js/300x300" alt="...">
         <div class="caption">
-          <h3>WeatherUnderground</h3>
+          <h3>Flickr</h3>
           <p>...</p>
           <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
         </div>
       </div>
-    </div>-->
+    </div>
      <div class="col-sm-4 col-md-3">
       <div class="thumbnail">
         <img src="http://s3-media3.fl.yelpcdn.com/assets/2/www/img/2d7ab232224f/developers/yelp_logo_100x50.png" alt="Yelp Logo">
         <div class="caption">
           <h3>Yelp</h3>
           <p>The Yelp API was used to pull in restaurants and their reviews by location</p>
-          <p><a href="http://www.yelp.com/developers/documentation" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          <p><a href="http://www.yelp.com/developers/documentation" class="btn btn-primary" role="button">Yelp API</a> </p>
         </div>
       </div>
     </div>
      <div class="col-sm-4 col-md-3">
       <div class="thumbnail">
-        <img data-src="holder.js/300x300" alt="...">
+        <img src="holder.js/300x300" alt="...">
         <div class="caption">
           <h3>Google Places</h3>
           <p>...</p>
@@ -124,7 +124,7 @@
       <div class="thumbnail">
         <img data-src="holder.js/300x300" alt="...">
         <div class="caption">
-          <h3>Thumbnail label</h3>
+          <h3>Eventful</h3>
           <p>...</p>
           <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
         </div>
