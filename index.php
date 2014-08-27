@@ -240,6 +240,9 @@ function showPosition(position) {
         setTimeout(function() {
             $('#location_status').fadeOut('fast');
         }, 2000);
+      },
+      error: function() {
+        $("#location_status").html("<p>Try a different browser (IE 9+, Chrome, or Firefox)</p>");
       }
       });
 }

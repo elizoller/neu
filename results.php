@@ -8,15 +8,6 @@ if (isset($_POST['submit'])) {
     $cquery = str_replace('&', '%3F', $cquery);
     $lat = $_POST['lat'];
     $lon = $_POST['lon'];
-    //using geonames to get official country, city, and state
-    $locationfile = file_get_contents("http://api.geonames.org/postalCodeSearchJSON?placename=" . $cquery . "&maxRows=1&username=elizoller");
-    $locationfile = json_decode($locationfile);
-    foreach($locationfile->postalCodes as $place){
-      $country = $place->countryCode;
-      $city = $place->placeName;
-      $state = $place->adminCode1;
-      $state_full = $place->adminName1;
-    }
   if ($lat == NULL || $lon == NULL){
        //using geonames to get lat, long if not provided from form submit
     $locationfile = file_get_contents("http://api.geonames.org/postalCodeSearchJSON?placename=" . $cquery . "&maxRows=1&username=elizoller");
@@ -26,8 +17,17 @@ if (isset($_POST['submit'])) {
       $lon = $place->lng;
     }
   }
+  //using geonames to get official country, city, and state from lat/lon
+  $locationfile = file_get_contents("http://api.geonames.org/findNearbyPlaceNameJSON?lat=" . urlencode($lat) . "&lng=" . urlencode($lon) . "&username=elizoller");
+  $locationfile = json_decode($locationfile);
+    foreach($locationfile->geonames as $place){
+      $country = $place->countryCode;
+      $city = $place->toponymName;
+      $state = $place->adminCode1;
+      $state_full = $place->adminName1;
+    }
     $imgurl = "http://staticmap.openstreetmap.de/staticmap.php?center=" . $lat . "," . $lon . "&zoom=14&maptype=mapnik";
-    if ($countrycode != 'US') {
+    if ($country != 'US') {
       $error_message = "We're sorry but The Best of Local works best with United States locations due to its dependency on external APIs. Thanks!<br/><br/><a href='http://eliwire.com/neu'>The Best of Local</a>";
     }
   } else {

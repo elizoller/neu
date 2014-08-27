@@ -180,7 +180,7 @@ function googleplaces($results_google, $city, $state) {
     else {
       echo "<p>Keep on truckin'.</p>";
     }
-   echo "<p><a href='https://www.google.com/#q=" . urlencode($city . ", " . $state . " attractions") . "' target='_blank'>Look for more on Google</a></div>";
+   echo "<p><a href='https://www.google.com/#q=" . urlencode($city . ", " . $state . " attractions") . "' target='_blank'>Look for more on Google</a><br/><img src='https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white2.png'></div>";
   }
 function eventful($cquery, $results_eventful, $city, $state) {
  //EVENTFUL RESULTS

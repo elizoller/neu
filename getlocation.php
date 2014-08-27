@@ -5,6 +5,6 @@ $url = "http://api.geonames.org/findNearbyPlaceNameJSON?lat=" . urlencode($lat) 
 $location = file_get_contents($url);
 $locationjson = json_decode($location);
 foreach ($locationjson->geonames as $name) {
-	echo $name->toponymName . ", " . $name->adminCode1;
+	echo $name->toponymName . ", " . $name->adminCode1 . ", " . $name->countryName;
 }
 ?>
