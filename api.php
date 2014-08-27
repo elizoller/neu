@@ -138,12 +138,18 @@ function wikipedia($city_state, $results_wiki_1, $results_wiki_2) {
   //WIKIPEDIA RESULTS
    foreach ($results_wiki_2->query->pages as $m) {
     $wikiarticle = $m->fullurl;
+    $wikimissing = $m->missing;
    }
   echo "<div class='row'><div class='col-xs-12'>";
-  foreach ($results_wiki_1->query->pages as $k) {
-    $extract = $k->extract;
+  if ($wikimissing == '') {
+    echo "<p>Wikipedia doesn't have any information on " . $city_state . ". <a href='" . $wikiarticle . "' target='_blank'>Add some!</a></p>";
   }
-  echo "<p>" . $extract . "</p><p class='clearfix'><a target='_blank' href='" . $wikiarticle ."'>Read more from Wikipedia about " . $city_state . "</a></p>";
+  else {
+    foreach ($results_wiki_1->query->pages as $k) {
+      $extract = $k->extract;
+    }
+    echo "<p>" . $extract . "</p><p class='clearfix'><a target='_blank' href='" . $wikiarticle ."'>Read more from Wikipedia about " . $city_state . "</a></p>";
+  }
     echo "</div></div>";
 }
 

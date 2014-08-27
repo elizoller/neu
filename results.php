@@ -8,27 +8,33 @@ if (isset($_POST['submit'])) {
     $cquery = str_replace('&', '%3F', $cquery);
     $lat = $_POST['lat'];
     $lon = $_POST['lon'];
-  if ($lat == NULL || $lon == NULL){
-       //using geonames to get lat, long if not provided from form submit
-    $locationfile = file_get_contents("http://api.geonames.org/postalCodeSearchJSON?placename=" . $cquery . "&maxRows=1&username=elizoller");
+    //if lat/lon not set by submission of form/browser finding location  
+    if ($lat == NULL || $lon == NULL){
+         //using geonames to get lat, long if not provided from form submit
+      $locationfile = file_get_contents("http://api.geonames.org/postalCodeSearchJSON?placename=" . $cquery . "&maxRows=1&username=elizoller");
+      $locationfile = json_decode($locationfile);
+      foreach($locationfile->postalCodes as $place){
+        $lat = $place->lat;
+        $lon = $place->lng;
+      }
+    }
+    //using geonames to get official country, city, and state from lat/lon
+    $locationfile = file_get_contents("http://api.geonames.org/findNearbyPlaceNameJSON?lat=" . urlencode($lat) . "&lng=" . urlencode($lon) . "&username=elizoller");
+    //echo $locationfile;
     $locationfile = json_decode($locationfile);
-    foreach($locationfile->postalCodes as $place){
-      $lat = $place->lat;
-      $lon = $place->lng;
+    //testing if no location found then we can't find the place
+    if (isset($locationfile->status)) {
+      $error_message = "We're sorry but we can't seem to find that city. Try <a href='http://eliwire.com/neu'>a different city</a>. The Best of Local works best with United States locations due to its dependency on external APIs. Thanks!";
     }
-  }
-  //using geonames to get official country, city, and state from lat/lon
-  $locationfile = file_get_contents("http://api.geonames.org/findNearbyPlaceNameJSON?lat=" . urlencode($lat) . "&lng=" . urlencode($lon) . "&username=elizoller");
-  $locationfile = json_decode($locationfile);
-    foreach($locationfile->geonames as $place){
-      $country = $place->countryCode;
-      $city = $place->toponymName;
-      $state = $place->adminCode1;
-      $state_full = $place->adminName1;
-    }
-    $imgurl = "http://staticmap.openstreetmap.de/staticmap.php?center=" . $lat . "," . $lon . "&zoom=14&maptype=mapnik";
-    if ($country != 'US') {
-      $error_message = "We're sorry but The Best of Local works best with United States locations due to its dependency on external APIs. Thanks!<br/><br/><a href='http://eliwire.com/neu'>The Best of Local</a>";
+    else {
+      foreach($locationfile->geonames as $place){
+        $country = $place->countryCode;
+        $city = $place->toponymName;
+        $state = $place->adminCode1;
+        $state_full = $place->adminName1;
+      }
+
+      $imgurl = "http://staticmap.openstreetmap.de/staticmap.php?center=" . $lat . "," . $lon . "&zoom=14&maptype=mapnik";
     }
   } else {
     $error_message = "We didn't get your location. <a href='http://eliwire.com/neu'>Enter your city</a> or use the <a href='http://eliwire.com/neu'><span class='glyphicon glyphicon-map-marker'></span></a> to find your location.";
