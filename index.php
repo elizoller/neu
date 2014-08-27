@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="bootstrap/css/style.css">
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -20,6 +21,19 @@
   ga('create', 'UA-45145656-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+<script>
+//for ie10 mobile fix
+if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+    var msViewportStyle = document.createElement("style");
+    msViewportStyle.appendChild(
+        document.createTextNode(
+            "@-ms-viewport{width:auto!important}"
+        )
+    );
+    document.getElementsByTagName("head")[0].
+        appendChild(msViewportStyle);
+}
 </script>
 </head>
 <body>

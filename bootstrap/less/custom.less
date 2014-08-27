@@ -1,8 +1,20 @@
+.row {
+	padding-top:1%;
+	padding-bottom:1%;
+}
+h1, h2, h3, h4, h5, h6, p {
+	padding-left:1%;
+	padding-right:1%;
+}
 #map {
 	h1 {
 		padding:3%;
 	}
 }
+.about {
+	background: lighten(@brand-info, 30%);
+}
+/*for searchbox*/
 .searchbox {
 	background: url('../../images/worldmap.jpg') 100%;
 }
@@ -14,17 +26,8 @@ form {
 		padding-right:1%;
 	}
 }
-.row {
-	padding-top:1%;
-	padding-bottom:1%;
-}
-.about {
-	background: lighten(@brand-info, 30%);
-}
-h1, h2, h3, h4, h5, h6, p {
-	padding-left:1%;
-	padding-right:1%;
-}
+/*end searchbox*/
+/*for autocomplete*/
 #ui-id-1 {
 	width:50%;
 }
@@ -36,15 +39,25 @@ h1, h2, h3, h4, h5, h6, p {
 	border:none;
 	color:@gray-darker;
 }
+.ui-autocomplete {
+	list-style:none;
+}
 #location_status {
 	display:none;
 }
+/*end autocomplete*/
+/*img sizes*/
 .carousel img {
 	width:100%;
 }
 .dpla_image {
 	max-width:100%;
 }
+.thumbnail > img, .thumbnail a > img {
+	max-height: 60px;
+}
+/*end img sizes*/
+/*for eventful badge*/
 .eventful-badge,
 .eventful-badge * {
   margin: 0             !important;
@@ -77,9 +90,12 @@ h1, h2, h3, h4, h5, h6, p {
   font-size: 11px       !important;
   line-height: 11px     !important;
 }
-.thumbnail > img, .thumbnail a > img {
-	max-height: 60px;
-}
-.ui-autocomplete {
-	list-style:none;
-}
+/*end eventful badge*/
+/*for ie fixes*/
+@-webkit-viewport   { width: device-width; }
+@-moz-viewport      { width: device-width; }
+@-ms-viewport       { width: device-width; }
+@-o-viewport        { width: device-width; }
+@viewport           { width: device-width; }
+/*end ie fixes*/
+

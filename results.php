@@ -28,7 +28,7 @@ if (isset($_POST['submit']) && $_POST['q'] != NULL) {
     $imgurl = "http://staticmap.openstreetmap.de/staticmap.php?center=" . $lat . "," . $lon . "&zoom=14&size=865x512&maptype=mapnik";
   ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf8">
@@ -50,6 +50,19 @@ if (isset($_POST['submit']) && $_POST['q'] != NULL) {
   ga('create', 'UA-45145656-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+<script>
+//for ie10 mobile fix
+if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+    var msViewportStyle = document.createElement("style");
+    msViewportStyle.appendChild(
+        document.createTextNode(
+            "@-ms-viewport{width:auto!important}"
+        )
+    );
+    document.getElementsByTagName("head")[0].
+        appendChild(msViewportStyle);
+}
 </script>
 <style>
 #map {
