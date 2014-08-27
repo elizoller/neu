@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
   }
     $imgurl = "http://staticmap.openstreetmap.de/staticmap.php?center=" . $lat . "," . $lon . "&zoom=14&maptype=mapnik";
     if ($countrycode != 'US') {
-      $error_message = "We're sorry but The Best of Local works best with United States locations due to its dependency on external APIs. Thanks!";
+      $error_message = "We're sorry but The Best of Local works best with United States locations due to its dependency on external APIs. Thanks!<br/><br/><a href='http://eliwire.com/neu'>The Best of Local</a>";
     }
   } else {
     $error_message = "We didn't get your location. <a href='http://eliwire.com/neu'>Enter your city</a> or use the <a href='http://eliwire.com/neu'><span class='glyphicon glyphicon-map-marker'></span></a> to find your location.";
