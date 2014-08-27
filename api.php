@@ -141,6 +141,7 @@ function wikipedia($city_state, $results_wiki_1, $results_wiki_2) {
     $wikimissing = $m->missing;
    }
   echo "<div class='row'><div class='col-xs-12'>";
+  //if no wikipedia article
   if ($wikimissing == '') {
     echo "<p>Wikipedia doesn't have any information on " . $city_state . ". <a href='" . $wikiarticle . "' target='_blank'>Add some!</a></p>";
   }
@@ -157,6 +158,7 @@ function yelp($results_yelp, $cquery, $city, $state) {
   $results_yelp = json_decode(search($cquery));
  //YELP RESULTS
   echo "<div class='row yelp'><h3>Eat Local</h3><div class='col-xs-12'>";
+  //if no restaurants found
   if ($results_yelp->businesses == NULL) {
     echo "<p>Better luck in the next town.</p>";
   }
@@ -176,6 +178,7 @@ function yelp($results_yelp, $cquery, $city, $state) {
 function googleplaces($results_google, $city, $state) {
 //GOOGLE PLACES RESULTS
     echo "<div class='col-sm-6'><h3>Explore Local</h3>";
+    //if places listed
     if ($results_google->status == 'OK') {
       echo "<ul>";
       foreach ($results_google->results as $result) {
@@ -191,6 +194,7 @@ function googleplaces($results_google, $city, $state) {
 function eventful($cquery, $results_eventful, $city, $state) {
  //EVENTFUL RESULTS
     echo "<div class='col-sm-6'><h3>Coming Up</h3>";
+    //if no events
     if ($results_eventful->total_items == 0) {
       echo "<p>Check back soon for more events!</p>";
     }
@@ -212,6 +216,7 @@ function dpla($city_state, $results_dpla) {
 $numresultsdpla = intval($results_dpla->count);
 $countdpla = 0;
 echo "<div class='col-sm-6'><h3>Get Historical</h3>";
+//if there are results
   if ($numresultsdpla > 0) {
     foreach ($results_dpla->docs as $doc) {
       $countdpla++;
@@ -247,6 +252,7 @@ echo "<div class='col-sm-6'><h3>Get Historical</h3>";
 function flickr($city, $results_flickr) {
   //FLICKR RESULTS
    echo "<div class='col-sm-6'><h3>Local Pictures</h3>";
+   //if there are photos
    if ($results_flickr->photos->total != 0) {
    echo "<div class='carousel slide' id='flickr_carousel'><ol class='carousel-indicators'><li data-target='flickr_carousel' data-slide-to='0' class='active'><li data-target='flickr_carousel' data-slide-to='1'><li data-target='flickr_carousel' data-slide-to='2'><li data-target='flickr_carousel' data-slide-to='3'><li data-target='flickr_carousel' data-slide-to='4'></ol><div class='carousel-inner'>";
    $flickr_count = 0;
