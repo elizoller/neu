@@ -82,7 +82,7 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
         <img src="http://epicenter.geobytes.com/images/Geobytes-red_small.gif" alt="GeoBytes logo">
         <div class="caption">
           <h3>GeoBytes</h3>
-          <p>The GeoBytes API was used for the autocomplete search box. JQuery was used get JSON from the Cities API. This process involved reverse geocoding.</p>
+          <p>The GeoBytes API was used for the autocomplete search box. JQuery was used get JSON from the Cities API.</p>
           <p><a href="http://www.geobytes.com/" class="btn btn-primary" role="button" target="_blank">API Info</a> </p>
         </div>
       </div>
@@ -146,7 +146,7 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
         <img src="images/geonames.png" alt="geonames logo">
         <div class="caption">
           <h3>GeoNames</h3>
-          <p>GeoNames was used to gather required data about the specified location such as latitude and longitude coordinates, ie. geocoding.</p>
+          <p>GeoNames was used to gather required data about the specified location such as latitude and longitude coordinates, ie. geocoding and reverse geocoding.</p>
           <p><a href="http://www.geonames.org/export/web-services.html" class="btn btn-primary" role="button" target="_blank">API Info</a></p>
         </div>
       </div>
@@ -178,7 +178,7 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
   </div>
   <div class="col-sm-6">
     <h3><a href="https://github.com/elizoller/neu" target="_blank" >View the Source</a></h3>
-    <a href="https://github.com/elizoller/neu" target="_blank" ><img src="images/code.png"></a>
+    <a href="https://github.com/elizoller/neu" target="_blank" ><img src="images/code.png" class="source"></a>
   </div>
 </div>
 <hr/>
