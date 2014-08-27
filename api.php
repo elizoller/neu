@@ -205,9 +205,9 @@ function eventful($cquery, $results_eventful, $city, $state) {
         echo $event->start_time . "<br/>";
         echo "at the <a href='" . $event->venue_url . "' target='_blank'>" . $event->venue_name . "</a></li>";
       }
-      echo "</ul>";
+      echo "</ul><p class='clearfix'><a href='https://www.google.com/#q=" . urlencode("upcoming events " . $city . ", " . $state) . "'>More Upcoming Events</a></p>";
     }
-    echo "<p class='clearfix'><a href='https://www.google.com/#q=" . urlencode("upcoming events " . $city . ", " . $state) . "'>More Upcoming Events</a></p><div class='eventful-badge eventful-small'><img src='http://api.eventful.com/images/powered/eventful_58x20.gif' alt='Local Events, Concerts, Tickets'><p><a href='http://eventful.com/'>Events</a> by Eventful</p></div></div>";
+    echo "<div class='eventful-badge eventful-small'><img src='http://api.eventful.com/images/powered/eventful_58x20.gif' alt='Local Events, Concerts, Tickets'><p><a href='http://eventful.com/'>Events</a> by Eventful</p></div></div>";
 }
 
 function dpla($city_state, $results_dpla) {
