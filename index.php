@@ -192,7 +192,7 @@ $(function ()
    $("#city").autocomplete({
     source: function (request, response) {
      $.getJSON(
-      "http://gd.geobytes.com/AutoCompleteCity?callback=?&q="+request.term,
+      "http://gd.geobytes.com/AutoCompleteCity?callback=?&filter=US&q="+request.term,
       function (data) {
        response(data);
       }
