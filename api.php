@@ -142,7 +142,7 @@ function wikipedia($city_state, $results_wiki_1, $results_wiki_2) {
    }
   echo "<div class='row'><div class='col-xs-12'>";
   //if no wikipedia article
-  if ($wikimissing == '') {
+  if (isset($wikimissing) && ($wikimissing == '')) {
     echo "<p>Wikipedia doesn't have any information on " . $city_state . ". <a href='" . $wikiarticle . "' target='_blank'>Add some!</a></p>";
   }
   else {
