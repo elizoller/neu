@@ -120,8 +120,6 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
     <div class="col-sm-4 col-md-3">
       <div class="thumbnail">
         <img src="http://dp.la/assets/dpla-logo-7540ba3f90785a519efc8e58386b36d7.png" alt="dpla logo">
