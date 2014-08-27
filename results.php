@@ -1,6 +1,7 @@
 
 <?php 
-if (isset($_POST['submit']) && $_POST['q'] != NULL) {
+if (isset($_POST['submit'])) {
+  if ($_POST['q'] != NULL) {
     $cquery = $_POST['q'];
     $cquery = str_replace(' ', '+', $cquery);
     $cquery = str_replace('?', '%26', $cquery);
@@ -25,7 +26,13 @@ if (isset($_POST['submit']) && $_POST['q'] != NULL) {
       $lon = $place->lng;
     }
   }
-    $imgurl = "http://staticmap.openstreetmap.de/staticmap.php?center=" . $lat . "," . $lon . "&zoom=14&size=865x512&maptype=mapnik";
+    $imgurl = "http://staticmap.openstreetmap.de/staticmap.php?center=" . $lat . "," . $lon . "&zoom=14&maptype=mapnik";
+    if ($countrycode != 'US') {
+      $error_message = "We're sorry but The Best of Local works best with United States locations due to its dependency on external APIs. Thanks!";
+    }
+  } else {
+    $error_message = "We didn't get your location. <a href='http://eliwire.com/neu'>Enter your city</a> or use the <a href='http://eliwire.com/neu'><span class='glyphicon glyphicon-map-marker'></span></a> to find your location.";
+  } 
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,6 +82,12 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
 <div class="row">
   <h2><a href="index.php">The Best of Local: Discover What's Around You</a></h2>
 </div>
+<?php
+if (isset($error_message)) {
+  echo "<div class='row'><p>" . $error_message . "</p></div>";
+}
+else {
+?>
 <div class="row">
   <div class="col-xs-12" id="map">
     <h1 class="text-center"><?php echo $city . ", " . $state; ?></h1>
@@ -85,7 +98,8 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
 
 </div>
 <?php
-  }
+  } //end else no error message
+} //end else no submit or query is null
 ?>
 <hr/>
   <div class='footer'>
