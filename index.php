@@ -148,7 +148,6 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
       <div class="thumbnail">
           <img src="http://geoservices.tamu.edu/css/fb/TamuLogoGeo.png"
             alt="texas a and me logo">
-        </div>
         <div class="caption">
           <h3>Texas A&M GeoServices</h3>
           <p>Texas A&M GeoServices was used for reverse geocoding because it proved more reliable.</p>
