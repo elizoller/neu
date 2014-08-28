@@ -12,28 +12,25 @@ if (isset($_POST['submit'])) {
     if ($lat == NULL || $lon == NULL){
          //using geonames to get lat, long if not provided from form submit
       $locationfile = file_get_contents("http://api.geonames.org/postalCodeSearchJSON?placename=" . $cquery . "&maxRows=1&username=elizoller");
+      echo $locationfile;
       $locationfile = json_decode($locationfile);
       foreach($locationfile->postalCodes as $place){
         $lat = $place->lat;
         $lon = $place->lng;
       }
     }
-    //using geonames to get official country, city, and state from lat/lon
-    $locationfile = file_get_contents("http://api.geonames.org/findNearbyPlaceNameJSON?lat=" . urlencode($lat) . "&lng=" . urlencode($lon) . "&username=elizoller");
-    //echo $locationfile;
-    $locationfile = json_decode($locationfile);
     //testing if no location found then we can't find the place
     if (isset($locationfile->status)) {
       $error_message = "We're sorry but we can't seem to find that city. Try <a href='http://eliwire.com/neu'>a different city</a>. The Best of Local works best with United States locations due to its dependency on external APIs. Thanks!";
     }
     else {
-      foreach($locationfile->geonames as $place){
+      //using geonames to get official country, city, and state from lat/lon
+      foreach($locationfile->postalCodes as $place){
+        $city = $place->placeName;
         $country = $place->countryCode;
-        $city = $place->toponymName;
         $state = $place->adminCode1;
         $state_full = $place->adminName1;
       }
-
       $imgurl = "http://staticmap.openstreetmap.de/staticmap.php?center=" . $lat . "," . $lon . "&zoom=14&maptype=mapnik";
     }
   } else {
@@ -117,7 +114,7 @@ else {
         $.ajax({
           url: 'api.php',
           type: 'POST',
-          data: {action: 'all', lat: '<?php echo $lat;?>', lon: '<?php echo $lon;?>', countrycode3: '<?php echo $countrycode3; ?>', city: '<?php echo $city;?>', cquery: '<?php echo $cquery;?>', state: '<?php echo $state;?>', state_full: '<?php echo $state_full;?>'},
+          data: {action: 'all', lat: '<?php echo $lat;?>', lon: '<?php echo $lon;?>', city: '<?php echo $city;?>', cquery: '<?php echo $cquery;?>', state: '<?php echo $state;?>', state_full: '<?php echo $state_full;?>'},
           beforeSend: function() {
             $(".content").html("<h3>Loading information...</h3>");
           },

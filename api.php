@@ -53,6 +53,7 @@ $state = $_POST['state'];
 $state_full = $_POST['state_full'];
 $city_state = $city . ", " . $state;
 $city_state_full = $city . ", " . $state_full;
+//$city_state_full = $cquery;
 $countrycode3 = $_POST['countrycode3'];
 
 //set up query URLs
