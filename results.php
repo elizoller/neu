@@ -19,10 +19,7 @@ if (isset($_POST['submit'])) {
       }
     }
     //testing if no location found then we can't find the place
-    if (isset($locationfile->status)) {
-      $error_message = "We're sorry but we can't seem to find that city. Try <a href='http://eliwire.com/neu'>a different city</a>. The Best of Local works best with United States locations due to its dependency on external APIs. Thanks!";
-    }
-    else {
+      if ($locationfile->postalCodes != NULL) {
       //using geonames to get official country, city, and state from lat/lon
       foreach($locationfile->postalCodes as $place){
         $city = $place->placeName;
@@ -31,7 +28,13 @@ if (isset($_POST['submit'])) {
         $state_full = $place->adminName1;
       }
       $imgurl = "http://staticmap.openstreetmap.de/staticmap.php?center=" . $lat . "," . $lon . "&zoom=14&size=1200x300&maptype=mapnik";
-    }
+      }
+      else {
+        $error_message = "We're sorry but we can't seem to find that city. Try <a href='http://eliwire.com/neu'>a different city</a>. The Best of Local works best with United States locations due to its dependency on external APIs. Thanks!";
+      }
+      if ($countryCode != 'US') {
+        $error_message = "The Best of Local works best with United States locations due to its dependency on external APIs. Thanks!";
+      }
   } else {
     $error_message = "We didn't get your location. <a href='http://eliwire.com/neu'>Enter your city</a> or use the <a href='http://eliwire.com/neu'><span class='glyphicon glyphicon-map-marker'></span></a> to find your location.";
   } 
