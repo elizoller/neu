@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="bootstrap/css/style.css">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="bootstrap/js/html5shiv.js"></script>
+      <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45145656-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+//for ie10 mobile fix
+if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+    var msViewportStyle = document.createElement("style");
+    msViewportStyle.appendChild(
+        document.createTextNode(
+            "@-ms-viewport{width:auto!important}"
+        )
+    );
+    document.getElementsByTagName("head")[0].
+        appendChild(msViewportStyle);
+}
+</script>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <h2><a href="index.php">Libraries' Website Redesign</a></h2>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Current Site</h3>
+      <img src="images/old-homepage.png" class="img-thumbnail">
+    </div>
+    <div class="col-sm-6">
+      <h3>New Site</h3>
+      <img src="images/new-homepage.png" class="img-thumbnail">
+    </div>
+  </div>
+  <div class="row about">
+    <div class="col-sm-6">
+      <h3>Why are we redesigning?</h3>
+      <ul>
+        <li>Improve user access to library services and materials</li>
+        <li>Migrate from Cascade (proprietary) to Drupal (open source)</li>
+        <li>Transition to an iterative design process to allow for constantly changing content and user needs</li>
+        <li>Include data gathered from users, usability studies, and continued A/B/N testing</li>
+        <li>Update content based on reorganization of library staff and changes in branding, services structures, and FabLab implementation</li> 
+      </ul>
+      <br/>
+      <p class="text-center"><a href="https://github.com/UnivTexasArlington-Library" target="_blank" class="btn btn-lg btn-info">View our GitHub</a></p>
+    </div>
+    <div class="col-sm-6">
+    <h3>Timeline</h3>
+      <ul>
+        <li>User Study - Completed June 27</li>
+        <li>Library Staff Focus Groups - Completed July 18</li>
+        <li>Map of Content Hierarchy and Navigation - Completed July 24</li>
+        <li>Map of Drupal structure - Completed August 15 - including content types, taxonomies, views, modules, rules, roles, permissions, and workflows</li>
+        <li>Wireframe of Homepage - Completed July 31</li>
+        <li>Design of Homepage - Completed August 25</li>
+        <li>Establish Content Types, Taxonomies and Views and populate - Due on September 3</li>
+        <li>Design of Internal Pages - Due on September 3</li>
+        <li>Migrate remaining content from Cascade - Due on September 10</li>
+        <li>Creation of custom templates and modules - Due on September 10</li>
+        <li>Train content editors - September 10-17</li>
+        <li>Beta Launch - October 1 </li>
+        <li>Usability Study - Results due on November 1</li>
+        <li>Improvements based on usability study - Due on December 1</li>
+        <li>Replace existing site - December 15</li>
+        <li>Continued A/B/N testing - forever
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Documentation Examples</h3>
+      <p>Content Types</p>
+      <img src="images/content-types.png" class="img-thumbnail">
+      <p>Rules</p>
+      <img src="images/rules.png" class="img-thumbnail">
+      <p>Taxonomies</p>
+      <img src="images/taxonomies.png" class="img-thumbnail">
+      <p>Views</p>
+      <img src="images/views.png" class="img-thumbail">
+    </div>
+  </div>
+  <hr/>
+  <div class='footer'>
+    <p class='center-block'>Made by <a href='http://eliwire.com'>Eli Zoller</a></p>
+  </div>
+</div>
+</body>
+</html>
