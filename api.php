@@ -11,7 +11,6 @@ $SEARCH_LIMIT = 4;
 $SEARCH_PATH = '/v2/search/';
 $host = 'localhost';
 $path = '/~eliscottzoller/neu/api.php';
-//http://localhost/~eliscottzoller/pres/dpla/index3.php
 function request($host, $path) {
   $unsigned_url = "http://" . $host . $path;
   $token = new OAuthToken($GLOBALS['TOKEN'], $GLOBALS['TOKEN_SECRET']);
@@ -48,12 +47,12 @@ $action = $_POST['action'];
 $cquery = $_POST['cquery'];
 $lat = $_POST['lat'];
 $lon = $_POST['lon'];
-$city = $_POST['city'];
 $state = $_POST['state'];
 $state_full = $_POST['state_full'];
-$city_state = $city . ", " . $state;
-$city_state_full = $city . ", " . $state_full;
-$countrycode3 = $_POST['countrycode3'];
+$city_state = urldecode($cquery);
+$pieces = explode(", ", urldecode($cquery));
+$city_state = $pieces[0] . ", " . $state;
+$city_state_full = $pieces[0] . ", " . $state_full;
 
 //set up query URLs
 $wiki_url_1 = "http://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&titles=".urlencode($city_state_full)."&format=json&redirects";
