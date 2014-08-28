@@ -12,7 +12,6 @@ if (isset($_POST['submit'])) {
     if ($lat == NULL || $lon == NULL){
          //using geonames to get lat, long if not provided from form submit
       $locationfile = file_get_contents("http://api.geonames.org/postalCodeSearchJSON?placename=" . $cquery . "&maxRows=1&username=elizoller");
-      echo $locationfile;
       $locationfile = json_decode($locationfile);
       foreach($locationfile->postalCodes as $place){
         $lat = $place->lat;
@@ -31,7 +30,7 @@ if (isset($_POST['submit'])) {
         $state = $place->adminCode1;
         $state_full = $place->adminName1;
       }
-      $imgurl = "http://staticmap.openstreetmap.de/staticmap.php?center=" . $lat . "," . $lon . "&zoom=14&maptype=mapnik";
+      $imgurl = "http://staticmap.openstreetmap.de/staticmap.php?center=" . $lat . "," . $lon . "&zoom=14&size=1200x300&maptype=mapnik";
     }
   } else {
     $error_message = "We didn't get your location. <a href='http://eliwire.com/neu'>Enter your city</a> or use the <a href='http://eliwire.com/neu'><span class='glyphicon glyphicon-map-marker'></span></a> to find your location.";
