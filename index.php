@@ -81,11 +81,25 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
   <div class="row">
     <div class="col-sm-4 col-md-3">
       <div class="thumbnail">
-        <img src="http://epicenter.geobytes.com/images/Geobytes-red_small.gif" alt="GeoBytes logo">
+        <img src="http://dp.la/assets/dpla-logo-7540ba3f90785a519efc8e58386b36d7.png" alt="dpla logo">
         <div class="caption">
-          <h3>GeoBytes</h3>
-          <p>The GeoBytes API was used for the autocomplete search box. JQuery was used get JSON from the Cities API.</p>
-          <p><a href="http://www.geobytes.com/" class="btn btn-primary" role="button" target="_blank">API Info</a> </p>
+          <h3>DPLA</h3>
+          <p>The Digital Public Library of America API was used to bring in historical artifacts about the location.</p>
+          <p><a href="http://dp.la/info/developers/codex/" class="btn btn-primary" role="button" target="_blank">API Info</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-md-3">
+      <div class="thumbnail">
+        <div class="eventful-badge eventful-medium">
+          <img src="http://api.eventful.com/images/powered/eventful_88x31.gif"
+            alt="Local Events, Concerts, Tickets">
+          <p><a href="http://eventful.com/">Events</a> by Eventful</p>
+        </div>
+        <div class="caption">
+          <h3>Eventful</h3>
+          <p>Eventful API brings in upcoming events in the location.</p>
+          <p><a href="http://api.eventful.com/" class="btn btn-primary" role="button" target="_blank">API Info</a></p>
         </div>
       </div>
     </div>
@@ -101,11 +115,21 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
     </div>
     <div class="col-sm-4 col-md-3">
       <div class="thumbnail">
-        <img src="http://s3-media3.fl.yelpcdn.com/assets/2/www/img/2d7ab232224f/developers/yelp_logo_100x50.png" alt="Yelp Logo">
+        <img src="http://epicenter.geobytes.com/images/Geobytes-red_small.gif" alt="GeoBytes logo">
         <div class="caption">
-          <h3>Yelp</h3>
-          <p>The Yelp API was used to pull in restaurants and their reviews by location.</p>
-          <p><a href="http://www.yelp.com/developers/documentation" class="btn btn-primary" role="button" target="_blank">API Info</a> </p>
+          <h3>GeoBytes</h3>
+          <p>The GeoBytes API was used for the autocomplete search box. JQuery was used get JSON from the Cities API.</p>
+          <p><a href="http://www.geobytes.com/" class="btn btn-primary" role="button" target="_blank">API Info</a> </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-md-3">
+      <div class="thumbnail">
+        <img src="images/geonames.png" alt="geonames logo">
+        <div class="caption">
+          <h3>GeoNames</h3>
+          <p>GeoNames was used to gather required data about the specified location such as latitude and longitude coordinates, ie. geocoding and reverse geocoding.</p>
+          <p><a href="http://www.geonames.org/export/web-services.html" class="btn btn-primary" role="button" target="_blank">API Info</a></p>
         </div>
       </div>
     </div>
@@ -122,11 +146,13 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
     </div>
     <div class="col-sm-4 col-md-3">
       <div class="thumbnail">
-        <img src="http://dp.la/assets/dpla-logo-7540ba3f90785a519efc8e58386b36d7.png" alt="dpla logo">
+          <img src="http://geoservices.tamu.edu/css/fb/TamuLogoGeo.png"
+            alt="texas a and me logo">
+        </div>
         <div class="caption">
-          <h3>DPLA</h3>
-          <p>The Digital Public Library of America API was used to bring in historical artifacts about the location.</p>
-          <p><a href="http://dp.la/info/developers/codex/" class="btn btn-primary" role="button" target="_blank">API Info</a></p>
+          <h3>Texas A&M GeoServices</h3>
+          <p>Texas A&M GeoServices was used for reverse geocoding because it proved more reliable.</p>
+          <p><a href="https://geoservices.tamu.edu/Services/ReverseGeocoding/" class="btn btn-primary" role="button" target="_blank">API Info</a></p>
         </div>
       </div>
     </div>
@@ -143,25 +169,11 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
     </div>
     <div class="col-sm-4 col-md-3">
       <div class="thumbnail">
-        <img src="images/geonames.png" alt="geonames logo">
+        <img src="http://s3-media3.fl.yelpcdn.com/assets/2/www/img/2d7ab232224f/developers/yelp_logo_100x50.png" alt="Yelp Logo">
         <div class="caption">
-          <h3>GeoNames</h3>
-          <p>GeoNames was used to gather required data about the specified location such as latitude and longitude coordinates, ie. geocoding and reverse geocoding.</p>
-          <p><a href="http://www.geonames.org/export/web-services.html" class="btn btn-primary" role="button" target="_blank">API Info</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-3">
-      <div class="thumbnail">
-        <div class="eventful-badge eventful-medium">
-          <img src="http://api.eventful.com/images/powered/eventful_88x31.gif"
-            alt="Local Events, Concerts, Tickets">
-          <p><a href="http://eventful.com/">Events</a> by Eventful</p>
-        </div>
-        <div class="caption">
-          <h3>Eventful</h3>
-          <p>Eventful API brings in upcoming events in the location.</p>
-          <p><a href="http://api.eventful.com/" class="btn btn-primary" role="button" target="_blank">API Info</a></p>
+          <h3>Yelp</h3>
+          <p>The Yelp API was used to pull in restaurants and their reviews by location.</p>
+          <p><a href="http://www.yelp.com/developers/documentation" class="btn btn-primary" role="button" target="_blank">API Info</a> </p>
         </div>
       </div>
     </div>
